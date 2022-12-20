@@ -1,0 +1,34 @@
+{
+	"name": "suppressederror",
+	"version": "0.0.0",
+	"description": "ES Proposal spec-compliant shim for SuppressedError",
+	"main": "index.js",
+	"exports": {
+		".": "./index.js",
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/es-shims/SuppressedError.git"
+	},
+	"keywords": [
+		"javascript",
+		"ecmascript",
+		"polyfill",
+		"shim",
+		"SuppressedError",
+		"suppressed",
+		"error",
+		"es-shim API",
+		"es-shims"
+	],
+	"author": "Jordan Harband <ljharb@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/es-shims/SuppressedError/issues"
+	},
+	"homepage": "https://github.com/es-shims/SuppressedError#readme"
+}
