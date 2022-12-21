@@ -1,0 +1,26 @@
+{
+	"root": true,
+
+	"extends": "@ljharb",
+
+	"globals": {
+		"SuppressedError": false,
+	},
+
+	"rules": {
+		"id-length": 1,
+		"max-lines-per-function": 0,
+		"new-cap": [2, {
+			"capIsNewExceptions": [
+				"CreateMethodProperty",
+				"CreateNonEnumerableDataPropertyOrThrow",
+				"GetIntrinsic",
+				"InstallErrorCause",
+				"OrdinarySetPrototypeOf",
+				"RequireObjectCoercible",
+				"SuppressedError",
+				"Type"
+			],
+		}],
+	},
+}
