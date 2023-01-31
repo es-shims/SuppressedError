@@ -18,16 +18,15 @@ var SuppressedError = require('suppressed-error');
 
 var suppressedError = new RangeError('hi!');
 var cause = new EvalError('oops');
-var error = new SuppressedError(cause, suppressedError, 'this is a suppressed error', { cause: 'this is an optional cause' });
+var error = new SuppressedError(cause, suppressedError, 'this is a suppressed error');
 
 assert.equal(error.error, cause); // this is the cause of the suppression
 assert.equal(error.suppressed, suppressedError);
 assert.equal(error.message, 'this is a suppressed error');
-assert.equal(error.cause, 'this is an optional cause'); // this is also the cause, i guess?
 
 SuppressedError.shim(); // will be a no-op if not needed
 
-assert.ok(new globalThis.SuppressedError() instanceof SuppressedError);
+assert.ok(new globalThis.SuppressedError(null, '', {}) instanceof SuppressedError);
 ```
 
 ## Tests

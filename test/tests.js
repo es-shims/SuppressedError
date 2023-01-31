@@ -43,19 +43,8 @@ module.exports = function (SuppressedError, t) {
 
 		st.equal(error.message, message, 'error.message is expected');
 
-		st.equal(error.error, one, 'error.error is provided error');
+		st.equal(error.error, one, 'error.error is provided cause');
 		st.equal(error.suppressed, two, 'error.suppressed is provided suppressed error');
-
-		var errorWithCause = new SuppressedError(one, two, message, { cause: error });
-
-		st.equal(errorWithCause instanceof SuppressedError, true, 'errorWithCause is an instanceof SuppressedError');
-		st.equal(errorWithCause instanceof Error, true, 'errorWithCause is an instanceof Error');
-
-		st.equal(errorWithCause.message, message, 'errorWithCause.message is expected');
-
-		st.equal(errorWithCause.error, one, 'errorWithCause.error is provided error');
-		st.equal(errorWithCause.suppressed, two, 'errorWithCause.suppressed is provided suppressed error');
-		st.equal(errorWithCause.cause, error, 'errorWithCause.cause is provided cause');
 
 		st.end();
 	});
@@ -71,19 +60,8 @@ module.exports = function (SuppressedError, t) {
 
 		st.equal(error.message, message, 'error.message is expected');
 
-		st.equal(error.error, one, 'error.error is provided error');
+		st.equal(error.error, one, 'error.error is provided cause');
 		st.equal(error.suppressed, two, 'error.suppressed is provided suppressed error');
-
-		var errorWithCause = SuppressedError(one, two, message, { cause: error });
-
-		st.equal(errorWithCause instanceof SuppressedError, true, 'errorWithCause is an instanceof SuppressedError');
-		st.equal(errorWithCause instanceof Error, true, 'errorWithCause is an instanceof Error');
-
-		st.equal(errorWithCause.message, message, 'errorWithCause.message is expected');
-
-		st.equal(errorWithCause.error, one, 'errorWithCause.error is provided error');
-		st.equal(errorWithCause.suppressed, two, 'errorWithCause.suppressed is provided suppressed error');
-		st.equal(errorWithCause.cause, error, 'errorWithCause.cause is provided cause');
 
 		st.end();
 	});

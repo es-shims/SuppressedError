@@ -2,8 +2,8 @@
 
 var CreateMethodProperty = require('es-abstract/2022/CreateMethodProperty');
 var CreateNonEnumerableDataPropertyOrThrow = require('es-abstract/2022/CreateNonEnumerableDataPropertyOrThrow');
-var InstallErrorCause = require('es-abstract/2022/InstallErrorCause');
 var OrdinarySetPrototypeOf = require('es-abstract/2022/OrdinarySetPrototypeOf');
+
 var GetIntrinsic = require('get-intrinsic');
 var hasPropertyDescriptors = require('has-property-descriptors')();
 
@@ -15,7 +15,6 @@ function SuppressedError(error, suppressed, message) {
 	OrdinarySetPrototypeOf(O, proto); // eslint-disable-line no-use-before-define
 	delete O.constructor;
 
-	InstallErrorCause(O, arguments.length > 3 ? arguments[3] : {});
 	CreateNonEnumerableDataPropertyOrThrow(O, 'error', error);
 	CreateNonEnumerableDataPropertyOrThrow(O, 'suppressed', suppressed);
 
