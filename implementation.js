@@ -1,8 +1,8 @@
 'use strict';
 
-var CreateMethodProperty = require('es-abstract/2022/CreateMethodProperty');
-var CreateNonEnumerableDataPropertyOrThrow = require('es-abstract/2022/CreateNonEnumerableDataPropertyOrThrow');
-var OrdinarySetPrototypeOf = require('es-abstract/2022/OrdinarySetPrototypeOf');
+var CreateMethodProperty = require('es-abstract/2023/CreateMethodProperty');
+var CreateNonEnumerableDataPropertyOrThrow = require('es-abstract/2023/CreateNonEnumerableDataPropertyOrThrow');
+var OrdinarySetPrototypeOf = require('es-abstract/2023/OrdinarySetPrototypeOf');
 
 var GetIntrinsic = require('get-intrinsic');
 var hasPropertyDescriptors = require('has-property-descriptors')();
