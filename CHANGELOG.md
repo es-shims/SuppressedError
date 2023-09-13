@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.2](https://github.com/es-shims/SuppressedError/compare/v1.0.1...v1.0.2) - 2023-09-13
+
+### Commits
+
+- [Refactor] use `set-function-name`, `define-data-property` [`83ca3b4`](https://github.com/es-shims/SuppressedError/commit/83ca3b48efb31058598e659867a9733b0e400662)
+- [Deps] update `define-properties`, `set-function-name` [`358a448`](https://github.com/es-shims/SuppressedError/commit/358a448b1c74c37f13b22bc5f7b69dd4b50e6250)
+
 ## [v1.0.1](https://github.com/es-shims/SuppressedError/compare/v1.0.0...v1.0.1) - 2023-09-01
 
 ### Commits
