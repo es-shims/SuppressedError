@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.3](https://github.com/es-shims/SuppressedError/compare/v1.0.2...v1.0.3) - 2024-02-04
+
+### Commits
+
+- [Deps] update `define-data-property`, `es-abstract`, `function-bind`, `get-intrinsic`, `has-property-descriptors` [`0607304`](https://github.com/es-shims/SuppressedError/commit/0607304c5db9774a0ab5d51cc16453070d7e91f8)
+- [Refactor] use `es-errors` where possible, so things that only need those do not need `get-intrinsic` [`d2b8b62`](https://github.com/es-shims/SuppressedError/commit/d2b8b6219a2922d62ae67c4eb37dc140c3d94203)
+- [Dev Deps] update `aud`, `npmignore`, `tape` [`4331dd2`](https://github.com/es-shims/SuppressedError/commit/4331dd296d794632fac81c1746f2d0915d419d82)
+
 ## [v1.0.2](https://github.com/es-shims/SuppressedError/compare/v1.0.1...v1.0.2) - 2023-09-13
 
 ### Commits
