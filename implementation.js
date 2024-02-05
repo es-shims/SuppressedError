@@ -4,10 +4,9 @@ var CreateMethodProperty = require('es-abstract/2023/CreateMethodProperty');
 var CreateNonEnumerableDataPropertyOrThrow = require('es-abstract/2023/CreateNonEnumerableDataPropertyOrThrow');
 var OrdinarySetPrototypeOf = require('es-abstract/2023/OrdinarySetPrototypeOf');
 
-var GetIntrinsic = require('get-intrinsic');
 var hasPropertyDescriptors = require('has-property-descriptors')();
 
-var $Error = GetIntrinsic('%Error%');
+var $Error = require('es-errors');
 
 // eslint-disable-next-line func-style
 function SuppressedError(error, suppressed, message) {
@@ -33,6 +32,6 @@ if (
 	throw new $Error('unable to install SuppressedError.prototype properties; please report this!');
 }
 
-OrdinarySetPrototypeOf(SuppressedError.prototype, Error.prototype);
+OrdinarySetPrototypeOf(SuppressedError.prototype, $Error.prototype);
 
 module.exports = SuppressedError;
