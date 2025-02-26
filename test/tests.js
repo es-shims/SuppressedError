@@ -4,6 +4,8 @@ var functionsHaveNames = require('functions-have-names')();
 var boundFunctionsHaveNames = require('functions-have-names').boundFunctionsHaveNames();
 var hasPropertyDescriptors = require('has-property-descriptors')();
 var hasSymbols = require('has-symbols/shams')();
+var inspect = require('object-inspect');
+var semver = require('semver');
 
 module.exports = function (SuppressedError, t) {
 	t.test('constructor', function (st) {
@@ -172,31 +174,36 @@ module.exports = function (SuppressedError, t) {
 		var obj = SuppressedError();
 
 		st.ok(Object.prototype.isPrototypeOf.call(SuppressedError.prototype, obj));
-		st.ok(obj instanceof SuppressedError);
+		st.ok(obj instanceof SuppressedError, 'error is an instanceof SuppressedError');
 
 		st.end();
 	});
 
-	t.test('test262: test/built-ins/NativeErrors/SuppressedError/order-of-args-evaluation', function (st) {
-		var messageStringified = false;
-		var message = {
-			toString: function () {
-				messageStringified = true;
-				return '';
-			}
-		};
-		var error = {};
-		var suppressed = {};
+	t.test(
+		'test262: test/built-ins/NativeErrors/SuppressedError/order-of-args-evaluation',
+		{ skip: semver.satisfies(process.version, '<= 0.8', { includePrerelease: true }) },
+		function (st) {
+			var messageStringified = false;
+			var message = {
+				toString: function () {
+					messageStringified = true;
+					return '';
+				}
+			};
+			var error = {};
+			var suppressed = {};
 
-		var e = new SuppressedError(error, suppressed, message);
+			var e = new SuppressedError(error, suppressed, message);
 
-		st.equal(messageStringified, true);
-		var keys = Object.getOwnPropertyNames(e);
-		var indexes = { message: keys.indexOf('message'), error: keys.indexOf('error'), suppressed: keys.indexOf('suppressed') };
-		st.ok(indexes.message < indexes.error && indexes.error < indexes.suppressed, 'message -> error -> suppressed');
+			st.equal(messageStringified, true);
+			var keys = Object.getOwnPropertyNames(e);
+			var indexes = { message: keys.indexOf('message'), error: keys.indexOf('error'), suppressed: keys.indexOf('suppressed') };
+			st.ok(indexes.message < indexes.error, 'message -> error: ' + inspect(indexes));
+			st.ok(indexes.error < indexes.suppressed, 'error -> suppressed: ' + inspect(indexes));
 
-		st.end();
-	});
+			st.end();
+		}
+	);
 
 	t.test('test262: test/built-ins/NativeErrors/SuppressedError/prototype/errors-absent-on-prototype', function (st) {
 		st.equal(Object.prototype.hasOwnProperty.call(SuppressedError.prototype, 'error'), false);
