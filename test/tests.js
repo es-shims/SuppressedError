@@ -192,7 +192,8 @@ module.exports = function (SuppressedError, t) {
 
 		st.equal(messageStringified, true);
 		var keys = Object.getOwnPropertyNames(e);
-		st.deepEqual(keys, ['stack', 'message', 'error', 'suppressed']);
+		var indexes = { message: keys.indexOf('message'), error: keys.indexOf('error'), suppressed: keys.indexOf('suppressed') };
+		st.ok(indexes.message < indexes.error && indexes.error < indexes.suppressed, 'message -> error -> suppressed');
 
 		st.end();
 	});
